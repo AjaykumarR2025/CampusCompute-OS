@@ -1,0 +1,15 @@
+# Compiled files
+*.o
+*.out
+*.exe
+
+# Generated executables
+campuscompute
+campuscompute_member1
+campuscompute_member2
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
