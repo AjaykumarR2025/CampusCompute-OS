@@ -1,13 +1,15 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 -O2 -pthread
-TARGET = campuscompute_member2
-SOURCE = member2.c
+CC      = gcc
+CFLAGS  = -Wall -Wextra -std=gnu11 -O2 -pthread -Iinclude
+TARGET  = campuscompute
+SRCS    = main.c src/jobs.c src/scheduling.c src/bankers.c src/worker.c src/member2.c
+HDRS    = $(wildcard include/*.h)
 
 .PHONY: all clean
 all: $(TARGET)
 
-$(TARGET): $(SOURCE)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCE) -pthread -lrt
+$(TARGET): $(SRCS) $(HDRS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS) -lrt
 
+# Removes only files created by this program.
 clean:
 	rm -f $(TARGET) campuscompute.log
