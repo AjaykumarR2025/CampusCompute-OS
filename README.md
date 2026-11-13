@@ -1,88 +1,57 @@
-# CampusCompute OS
+# CampusCompute – Member 2 Submission Files
 
-CampusCompute OS is a C-based operating-system simulation project developed as part of an academic team project. It demonstrates key operating-system concepts through command-line programs.
+Student SRN: PES1UG25CS043
 
-> **Note:** This project is a simulator for learning and demonstration. It is not a replacement for a real operating system.
+This folder contains the Member 2 implementation for the CampusCompute Operating Systems mini-project.
 
-## Features
+## Files included
 
-### 1. CPU Scheduling
+- `member2.c` — C implementation of FR3, FR4, FR7 and FR8.
+- `Makefile` — build instructions.
+- `README.md` — prerequisites, commands, testing and cleanup.
+- `requirements.txt` — required Linux system packages/APIs.
 
-- First Come, First Served (FCFS)
-- Round Robin (RR)
-- Priority Scheduling
-- Scheduling comparison
+## Requirements implemented
 
-### 2. Process and Resource Management
+- **FR3:** POSIX producer-consumer logger using pthreads, a bounded queue, mutex and condition variables. Consumer events are appended to `campuscompute.log`.
+- **FR4:** Parent/child communication using POSIX shared memory and a named semaphore. The program waits for the child and unlinks the IPC resources it creates.
+- **FR7:** Demonstrates `setrlimit()` with `RLIMIT_NOFILE`; also joins threads, waits for the child, and releases created resources.
+- **FR8:** CLI commands, argument validation and error/usage messages.
 
-- Banker's Algorithm for deadlock avoidance
-- Safe and unsafe state demonstrations
-- Simulated worker processes
-- Worker failure and resource-limit demonstrations
+## Build on Ubuntu / WSL Ubuntu
 
-### 3. Concurrency and Inter-Process Communication
-
-- Concurrent activity logging
-- Thread synchronization and termination
-- Shared memory communication
-- Semaphore-based coordination and cleanup
-
-## Technologies Used
-
-- C
-- GCC
-- Make
-- POSIX threads (`pthread`)
-- Shared memory and semaphores
-- Ubuntu/Linux
-
-## Project Structure
-
-The project is organized into source files, headers, and test or demonstration programs.
-
-```text
-CampusCompute-OS/
-├── src/          # Implementation source files
-├── include/      # Header files
-├── tests/        # Test and demonstration programs
-├── Makefile      # Build instructions
-├── README.md     # Project documentation
-└── .gitignore    # Files excluded from Git
-```
-
-*Update this structure to match the actual folders in your repository.*
-
-## Build and Run
-
-### Prerequisites
-
-- Ubuntu or another Linux environment
-- GCC compiler
-- GNU Make
-- POSIX thread support
-
-Check the installed tools:
+Install the compiler and Make:
 
 ```bash
-gcc --version
-make --version
+sudo apt update
+sudo apt install build-essential
 ```
 
-Build the project:
+Build:
 
 ```bash
 make
 ```
 
-Run the executable using the command supported by your project:
+Run each feature:
 
 ```bash
-./<executable-name>
+./campuscompute_member2 help
+./campuscompute_member2 logger 10
+./campuscompute_member2 ipc
+./campuscompute_member2 limits
+./campuscompute_member2 all
 ```
 
-To remove generated build files:
+View generated logs and clean generated files:
 
 ```bash
+cat campuscompute.log
 make clean
 ```
 
+## Final group-submission note
+
+This ZIP contains the Member 2 contribution only. Add Member 1's `.c` and `.h` source files to the shared project, reconcile the common build/CLI, then have Member 1 verify the complete source package as your division-of-work table specifies.
+
+The required `PES1UG25CS043.pdf` evidence PDF is **not included as completed evidence**. It must contain genuine screenshots captured from your own terminal by both members, with the full SRN visible in the terminal prompt and a one-line explanation under each screenshot. Do not submit fabricated or blank screenshots as evidence.

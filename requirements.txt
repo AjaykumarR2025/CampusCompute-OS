@@ -1,0 +1,7 @@
+# System requirements (not Python pip packages)
+# Platform: Ubuntu / WSL Ubuntu / Linux
+gcc
+make
+libc6-dev
+POSIX threads (pthread; provided by glibc)
+POSIX shared memory and named semaphores (Linux POSIX APIs)
